@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Toggling Event Listeners</title>
+  <style type="text/css" media="screen">
+    #box{
+      width: 100px;
+      height: 100px;
+      background-color: crimson;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" id="b" value="ON"/>
+  <div id="box">
+
+  </div>
+  <script>
+    var button = document.getElementById("b");
+
+    button.addEventListener("click", changeText);
+
+    function changeText(){
+      // button.value = (button.value == "ON") ? "OFF" : "ON";
+      if(button.value == "ON"){
+        button.value = "OFF";
+      } else{
+        button.value = "ON";
+      }
+    }
+
+    var box = document.getElementById("box");
+
+    box.addEventListener("mouseover", function(){
+      if (button.value == "ON"){
+        box.style.backgroundColor = "lime";
+      }
+    });
+
+    box.addEventListener("mouseout", function(){
+      if (button.value == "ON"){
+        box.style.backgroundColor = "crimson";
+      }
+    });
+  </script>
+</body>
+</html>
